@@ -413,7 +413,7 @@ function HomePageInner() {
               )}
 
               {view.kind === "results" && (
-                <div className="w-full max-w-3xl">
+                <div className="mx-auto w-full max-w-3xl">
                   <ResultsView
                     result={view.result}
                     onReset={reset}

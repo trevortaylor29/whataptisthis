@@ -3,12 +3,6 @@
 import type { AnalyzeResponse, ApartmentMatch } from "@/lib/types";
 import DebugPanel from "./DebugPanel";
 import MatchCard from "./MatchCard";
-import {
-  LockedPriceAssessmentPreview,
-  LockedSimilarApartmentsPreview,
-} from "./LockedPreviewSections";
-import PriceAssessmentSection from "./PriceAssessmentSection";
-import SimilarApartmentsSection from "./SimilarApartmentsSection";
 import UpgradePitchCard from "./UpgradePitchCard";
 
 interface Props {
@@ -124,20 +118,6 @@ export default function ResultsView({
             ))}
           </div>
         </section>
-      )}
-
-      {!showUnlocked && (
-        <div className="mt-6 flex flex-col gap-6">
-          <LockedSimilarApartmentsPreview city={result.city} />
-          <LockedPriceAssessmentPreview city={result.city} />
-        </div>
-      )}
-
-      {showUnlocked && (
-        <div className="mt-6 flex flex-col gap-6">
-          <SimilarApartmentsSection result={result} />
-          <PriceAssessmentSection neighborhood={result.city} />
-        </div>
       )}
 
       {showDebug && (

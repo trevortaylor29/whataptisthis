@@ -290,8 +290,10 @@ Analyze the search results against the extracted clues. For each candidate apart
 2. Confidence score (0-100, integer)
 3. Evidence FOR this match (what clues align)
 4. Evidence AGAINST this match (what doesn't fit)
-5. Direct website URL for the apartment (use the strongest URL from the search results — never fabricate)
-6. Approximate address
+5. **pros** — exactly **2-3** short bullet strings: practical upsides of choosing this building (location, amenities, value, views, finishes) as they relate to the video clues. Be specific; do not repeat evidence_for verbatim.
+6. **cons** — exactly **2-3** short bullet strings: real tradeoffs (noise, price, location friction, older stock, policy quirks) a renter should know. If little is known, infer typical tradeoffs for that submarket — still provide 2-3 items.
+7. Direct website URL for the apartment (use the strongest URL from the search results — never fabricate)
+8. Approximate address
 
 === WHAT IS NOT A MATCH (CRITICAL FILTERING RULE) ===
 You are looking for the actual apartment building or complex, NOT the original video or the social media post about it.
@@ -348,6 +350,8 @@ Return JSON exactly matching this schema:
       "website": string,
       "evidence_for": string[],
       "evidence_against": string[],
+      "pros": string[],                        // REQUIRED: 2-3 items (see TASK)
+      "cons": string[],                        // REQUIRED: 2-3 items (see TASK)
       "reasoning": string                      // 1-2 sentences
     }
   ],                                            // EXACTLY 3, sorted by confidence desc

@@ -195,6 +195,15 @@ export default function MatchCard({
           </p>
         )}
 
+        {tier === "paid" && (
+          <PaidProsCons
+            pros={match.pros}
+            cons={match.cons}
+            compact={!isTop}
+            topClassName={summaryText ? "mt-4" : "mt-2"}
+          />
+        )}
+
         {tier === "free" && isTop && (
           <>
             <FreeEvidenceTeaser match={match} />
@@ -285,6 +294,70 @@ export default function MatchCard({
         )}
       </header>
     </article>
+  );
+}
+
+function PaidProsCons({
+  pros,
+  cons,
+  compact,
+  topClassName = "mt-4",
+}: {
+  pros?: string[];
+  cons?: string[];
+  compact?: boolean;
+  topClassName?: string;
+}) {
+  const proItems = (pros ?? []).filter(Boolean).slice(0, 3);
+  const conItems = (cons ?? []).filter(Boolean).slice(0, 3);
+  if (proItems.length === 0 && conItems.length === 0) return null;
+
+  const titleCls = compact ? "text-[11px]" : "text-xs";
+  const bodyCls = compact ? "text-[13px]" : "text-sm";
+
+  return (
+    <div
+      className={`grid gap-3 border-t border-[rgba(255,255,255,0.06)] pt-3 md:grid-cols-2 md:gap-4 ${topClassName}`}
+    >
+      <div>
+        <h4
+          className={`font-semibold uppercase tracking-[0.08em] text-[#10B981] ${titleCls}`}
+        >
+          Pros
+        </h4>
+        {proItems.length > 0 ? (
+          <ul className={`mt-2 space-y-1.5 ${bodyCls} leading-relaxed text-ink-200`}>
+            {proItems.map((text, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" />
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={`mt-2 ${bodyCls} text-ink-500`}>—</p>
+        )}
+      </div>
+      <div>
+        <h4
+          className={`font-semibold uppercase tracking-[0.08em] text-[#F59E0B] ${titleCls}`}
+        >
+          Cons
+        </h4>
+        {conItems.length > 0 ? (
+          <ul className={`mt-2 space-y-1.5 ${bodyCls} leading-relaxed text-ink-200`}>
+            {conItems.map((text, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#F59E0B]" />
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={`mt-2 ${bodyCls} text-ink-500`}>—</p>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -528,25 +601,25 @@ function VisualVerificationSection({ v }: { v: VisualVerification }) {
       {v.reasoning && (
         <p className="mb-3 text-sm text-ink-200">{v.reasoning}</p>
       )}
-      {v.matchedFeatures.length > 0 && (
+      {(v.matchedFeatures?.length ?? 0) > 0 && (
         <div className="mb-2">
           <div className="mb-1 text-[11px] uppercase tracking-wider text-ink-500">
             Matched
           </div>
           <ul className="space-y-1 text-sm text-ink-200">
-            {v.matchedFeatures.map((f, i) => (
+            {(v.matchedFeatures ?? []).map((f, i) => (
               <li key={i}>{f}</li>
             ))}
           </ul>
         </div>
       )}
-      {v.mismatchedFeatures.length > 0 && (
+      {(v.mismatchedFeatures?.length ?? 0) > 0 && (
         <div>
           <div className="mb-1 text-[11px] uppercase tracking-wider text-ink-500">
             Mismatched
           </div>
           <ul className="space-y-1 text-sm text-ink-200">
-            {v.mismatchedFeatures.map((f, i) => (
+            {(v.mismatchedFeatures ?? []).map((f, i) => (
               <li key={i}>{f}</li>
             ))}
           </ul>

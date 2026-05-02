@@ -447,6 +447,16 @@ export const MOCK_CANDIDATE_ANALYSIS: CandidateAnalysis = {
       evidence_against: [
         "Cabinet finish in the video looks slightly darker than listing photos",
       ],
+      pros: [
+        "Strong skyline sightlines toward Indeed Tower from east-facing units.",
+        "Central downtown walkability and amenity stack typical of Class A towers.",
+        "Pricing band aligns with clues when promos are layered in.",
+      ],
+      cons: [
+        "Premium parking and amenity fees common for the submarket.",
+        "Street-level noise on lower floors near Bowie frontage.",
+        "Finish variance across floor plans can differ from listing hero shots.",
+      ],
       reasoning:
         "Sightline to Indeed Tower from a high east-facing studio + matching pricing band + 6-weeks-free promo cadence all point to The Bowie.",
     },
@@ -459,6 +469,16 @@ export const MOCK_CANDIDATE_ANALYSIS: CandidateAnalysis = {
       evidence_against: [
         "Indeed Tower not typically framed from 70 Rainey's view direction",
         "Studio pricing is usually higher",
+      ],
+      pros: [
+        "Rainey Street nightlife and trail access at your doorstep.",
+        "High-rise amenity package with skyline-oriented layouts.",
+        "Strong brand recognition for luxury renters downtown.",
+      ],
+      cons: [
+        "Premium rents vs. studios hinted in the video.",
+        "View geometry toward Indeed Tower is a weaker fit vs. top pick.",
+        "Construction and nightlife noise spikes on weekends.",
       ],
       reasoning:
         "Plausible downtown high-rise, but the skyline geometry doesn't fully match.",
@@ -475,6 +495,16 @@ export const MOCK_CANDIDATE_ANALYSIS: CandidateAnalysis = {
       evidence_against: [
         "Weak direct alignment with Indeed Tower sightline from search snippets",
         "Pricing/specials not corroborated in evidence",
+      ],
+      pros: [
+        "Hotel-branded services and polished amenity programming.",
+        "Second Street district retail and dining adjacency.",
+        "Luxury positioning consistent with tour-tier finishes.",
+      ],
+      cons: [
+        "Sparse evidence tying Indeed Tower line-of-sight to Proper units.",
+        "Typically higher ask vs. promo-forward studios in clues.",
+        "Requires visual confirmation — confidence intentionally low.",
       ],
       reasoning:
         "Low-confidence geographic/tier guess to complete three candidates; verify visually.",

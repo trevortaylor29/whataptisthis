@@ -214,6 +214,14 @@ export interface ApartmentMatch {
   evidence_for: string[];
   evidence_against: string[];
   reasoning: string;
+  /**
+   * 2-3 short bullets: upsides of this building vs alternatives (full scan / model output).
+   */
+  pros?: string[];
+  /**
+   * 2-3 short bullets: tradeoffs or drawbacks (full scan / model output).
+   */
+  cons?: string[];
   /** Set by Step 5 (visual verification). Absent if the step didn't run. */
   visual_verification?: VisualVerification;
 }
