@@ -316,7 +316,7 @@ function HomePageInner() {
     <div className="flex min-h-[100dvh] flex-col bg-page">
       {view.kind === "input" ? (
         <div className="relative min-h-screen min-h-[100dvh] w-full bg-page">
-          <header className="absolute left-0 right-0 top-0 z-[5] px-6 pt-8 md:px-10 md:pt-10">
+          <header className="pointer-events-auto absolute left-0 right-0 top-0 z-30 px-6 pt-8 md:px-10 md:pt-10">
             <Link
               href={homeHref}
               className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-page"
@@ -325,9 +325,12 @@ function HomePageInner() {
             </Link>
           </header>
 
-          {/* Full-viewport flex center — z-20 keeps form above absolute header/footer hit targets */}
-          <div className="relative z-20 flex min-h-screen min-h-[100dvh] w-full items-center justify-center px-4 pb-28 pt-20 md:px-8 md:pb-32 md:pt-24">
-            <div className="relative z-20 w-full max-w-[34rem] pointer-events-auto">
+          {/*
+            Full-viewport flex center: pointer-events-none on the shell so empty space
+            does not block the header/footer (z-30). The form column re-enables events.
+          */}
+          <div className="pointer-events-none relative z-20 flex min-h-screen min-h-[100dvh] w-full items-center justify-center px-4 pb-28 pt-20 md:px-8 md:pb-32 md:pt-24">
+            <div className="pointer-events-auto relative z-20 w-full max-w-[34rem]">
               <div
                 className="mb-6 h-px w-12 bg-[rgba(124,58,237,0.55)]"
                 aria-hidden
@@ -369,7 +372,7 @@ function HomePageInner() {
             </div>
           </div>
 
-          <footer className="absolute bottom-0 left-0 right-0 z-[5] border-t border-white/[0.06] bg-page px-4 py-5 text-center text-[13px] text-[#6B7280]">
+          <footer className="pointer-events-auto absolute bottom-0 left-0 right-0 z-30 border-t border-white/[0.06] bg-page px-4 py-5 text-center text-[13px] text-[#6B7280]">
             <Link
               href="/about"
               className="underline-offset-2 hover:text-ink-300 hover:underline"
