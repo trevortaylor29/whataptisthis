@@ -410,7 +410,7 @@ function HomePageInner() {
               </header>
 
               {view.kind === "processing" && (
-                <div className="max-w-2xl">
+                <div className="mx-auto w-full max-w-2xl">
                   <ProcessingView finishing={view.finishing} />
                 </div>
               )}
@@ -430,7 +430,7 @@ function HomePageInner() {
               )}
 
               {view.kind === "error" && (
-                <div className="max-w-2xl">
+                <div className="mx-auto w-full max-w-2xl">
                   <ErrorView
                     message={view.message}
                     details={view.details}
