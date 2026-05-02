@@ -13,29 +13,6 @@ interface Props {
   statusHint?: ReactNode;
 }
 
-const POPULAR_CITIES = [
-  "Austin, TX",
-  "New York, NY",
-  "Los Angeles, CA",
-  "Chicago, IL",
-  "Miami, FL",
-  "Houston, TX",
-  "Dallas, TX",
-  "San Francisco, CA",
-  "Seattle, WA",
-  "Denver, CO",
-  "Atlanta, GA",
-  "Boston, MA",
-  "Washington, DC",
-  "Nashville, TN",
-  "Phoenix, AZ",
-  "San Diego, CA",
-  "Portland, OR",
-  "Philadelphia, PA",
-  "Minneapolis, MN",
-  "Charlotte, NC",
-];
-
 const TIKTOK_RE =
   /^https?:\/\/(www\.|vm\.|m\.|vt\.)?(tiktok\.com|instagram\.com)\//i;
 
@@ -98,7 +75,7 @@ export default function InputForm({
         <input
           id="city"
           name="city"
-          list="popular-cities"
+          type="text"
           autoComplete="off"
           placeholder="e.g. Austin, TX"
           value={city}
@@ -106,11 +83,6 @@ export default function InputForm({
           disabled={busy}
           className={inputClass(!!errors.city)}
         />
-        <datalist id="popular-cities">
-          {POPULAR_CITIES.map((c) => (
-            <option key={c} value={c} />
-          ))}
-        </datalist>
       </Field>
 
       <div className="flex flex-col gap-2">

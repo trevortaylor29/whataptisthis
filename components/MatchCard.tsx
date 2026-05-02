@@ -288,9 +288,7 @@ export default function MatchCard({
         )}
 
         {tier === "paid" && !isTop && (
-          <div className="mt-5">
-            <RunnerDetailsCollapsible match={match} v={v} />
-          </div>
+          <RunnerEvidenceAndVerification match={match} v={v} />
         )}
       </header>
     </article>
@@ -538,54 +536,68 @@ function TopDetailsPanel({
   );
 }
 
-function RunnerDetailsCollapsible({
+/** Runner-up: evidence visible by default; visual verification is collapsible. */
+function RunnerEvidenceAndVerification({
   match,
   v,
 }: {
   match: ApartmentMatch;
   v: VisualVerification | null | undefined;
 }) {
-  const [open, setOpen] = useState(false);
+  const [verificationOpen, setVerificationOpen] = useState(false);
+  const forItems = (match.evidence_for ?? []).slice(0, 3);
+  const againstItems = (match.evidence_against ?? []).slice(0, 2);
+
   return (
-    <>
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="cursor-pointer text-sm text-accent-muted transition-colors duration-150 hover:text-ink-100"
-        aria-expanded={open}
-      >
-        {open ? "Hide" : "See"} verification & evidence ▾
-      </button>
-      {open && (
-        <div className="mt-4 w-full border-t border-ink-700 pt-4">
-          {match.evidence_for && match.evidence_for.length > 0 && (
-            <section className="mb-3 text-sm text-ink-200">
-              <h4 className="mb-1 text-xs uppercase tracking-wider text-ink-500">
-                For
-              </h4>
-              <ul className="list-disc space-y-1 pl-4">
-                {match.evidence_for.map((e, i) => (
-                  <li key={i}>{e}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-          {match.evidence_against && match.evidence_against.length > 0 && (
-            <section className="mb-3 text-sm text-ink-200">
-              <h4 className="mb-1 text-xs uppercase tracking-wider text-ink-500">
-                Against
-              </h4>
-              <ul className="list-disc space-y-1 pl-4">
-                {match.evidence_against.map((e, i) => (
-                  <li key={i}>{e}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-          {v && <VisualVerificationSection v={v} />}
-        </div>
+    <div className="mt-5 w-full space-y-4 border-t border-ink-700 pt-5">
+      {forItems.length > 0 && (
+        <section>
+          <h4 className="mb-2 text-xs font-medium uppercase tracking-wider text-emerald-400/90">
+            Evidence for
+          </h4>
+          <ul className="space-y-2 text-sm text-ink-200">
+            {forItems.map((e, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10B981]" />
+                {e}
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
-    </>
+      {againstItems.length > 0 && (
+        <section>
+          <h4 className="mb-2 text-xs font-medium uppercase tracking-wider text-amber-400/90">
+            Evidence against
+          </h4>
+          <ul className="space-y-2 text-sm text-ink-200">
+            {againstItems.map((e, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-amber-500" />
+                {e}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {v && (
+        <>
+          <button
+            type="button"
+            onClick={() => setVerificationOpen((o) => !o)}
+            className="cursor-pointer text-sm font-medium text-accent-muted transition-colors duration-150 hover:text-ink-100"
+            aria-expanded={verificationOpen}
+          >
+            {verificationOpen ? "Hide" : "Show"} visual verification ▾
+          </button>
+          {verificationOpen && (
+            <div className="mt-3">
+              <VisualVerificationSection v={v} />
+            </div>
+          )}
+        </>
+      )}
+    </div>
   );
 }
 

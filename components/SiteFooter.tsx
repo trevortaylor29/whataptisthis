@@ -26,6 +26,12 @@ export default function SiteFooter() {
           >
             Contact
           </Link>
+          <Link
+            href="/legal"
+            className="text-accent-muted transition-colors hover:text-ink-100"
+          >
+            Legal
+          </Link>
           <button
             type="button"
             onClick={() =>

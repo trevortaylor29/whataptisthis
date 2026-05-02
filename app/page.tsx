@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { isDebugModeFromSearchParams } from "@/lib/is-debug-mode";
 import InputForm from "@/components/InputForm";
+import SubheadlineTypewriter from "@/components/SubheadlineTypewriter";
 import Logo from "@/components/Logo";
 import ProcessingView from "@/components/ProcessingView";
 import RestorePurchasesModal from "@/components/RestorePurchasesModal";
@@ -338,10 +339,7 @@ function HomePageInner() {
               <h1 className="mb-6 font-display text-[2.5rem] font-bold leading-[1.05] tracking-tight text-ink-100 md:text-[56px] lg:text-[64px]">
                 Find any apartment from a TikTok.
               </h1>
-              <p className="mb-10 max-w-xl text-lg font-normal leading-relaxed text-ink-400 md:text-xl">
-                Stop DMing agents. Paste the link, we&apos;ll find the
-                building.
-              </p>
+              <SubheadlineTypewriter />
 
               <div className="rounded-2xl border border-[rgba(124,58,237,0.2)] bg-surface p-8">
                 <InputForm
@@ -385,6 +383,13 @@ function HomePageInner() {
               className="underline-offset-2 hover:text-ink-300 hover:underline"
             >
               Contact
+            </Link>
+            <span className="mx-3 text-ink-600">·</span>
+            <Link
+              href="/legal"
+              className="underline-offset-2 hover:text-ink-300 hover:underline"
+            >
+              Legal
             </Link>
             <span className="mx-3 text-ink-600">·</span>
             <button
