@@ -62,6 +62,15 @@ export async function ensureSchema(): Promise<void> {
         PRIMARY KEY (ip, utc_day)
       );
     `);
+
+    await p.query(`
+      CREATE TABLE IF NOT EXISTS restore_ip_limits (
+        ip TEXT PRIMARY KEY,
+        utc_day TEXT NOT NULL,
+        failure_count INTEGER NOT NULL DEFAULT 0,
+        blocked_until TEXT
+      );
+    `);
   })();
 
   return ensureSchemaPromise;

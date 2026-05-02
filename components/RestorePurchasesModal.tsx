@@ -31,15 +31,24 @@ export default function RestorePurchasesModal({
         credits?: number;
         error?: string;
       };
+      if (res.status === 429 || data.error === "rate_limited") {
+        onResult(
+          "Too many restore attempts. Please try again later.",
+        );
+        return;
+      }
       if (!res.ok) {
         onResult(data.error ?? "Restore failed.");
         return;
       }
       if (data.restored && typeof data.credits === "number") {
-        onResult(`Restored ${data.credits} credit(s) to this browser.`);
+        const n = data.credits;
+        onResult(
+          `Restored ${n} credit${n === 1 ? "" : "s"} to your account.`,
+        );
         onClose();
       } else {
-        onResult("No purchases found for that email.");
+        onResult("No purchases found for this email.");
       }
     } catch {
       onResult("Network error.");

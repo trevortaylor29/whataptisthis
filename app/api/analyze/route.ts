@@ -32,6 +32,7 @@ import {
   fetchThumbnailAsDataUrl,
   saveVisionFramesToDebugDirectory,
 } from "@/lib/video-frames";
+import { getClientIp } from "@/lib/request-ip";
 import { verifyCandidate } from "@/lib/visual-verification";
 import {
   appendScan,
@@ -205,12 +206,6 @@ async function buildClueExtractionVisionDebug(
     visionDebugFramesDirectory: stats.visionDebugFramesDir,
     visionDebugSavedFilenames: stats.visionDebugSavedFiles,
   };
-}
-
-function getClientIp(req: NextRequest): string {
-  const fwd = req.headers.get("x-forwarded-for");
-  if (fwd) return fwd.split(",")[0]!.trim();
-  return req.headers.get("x-real-ip") ?? "unknown";
 }
 
 // Deep-clone JSON-safe data. We hand fresh copies of the mock objects to each
