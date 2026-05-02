@@ -3,7 +3,6 @@ import { promises as fs } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import ffmpegInstaller from "@ffmpeg-installer/ffmpeg";
 import sharp from "sharp";
 
 /**
@@ -12,7 +11,10 @@ import sharp from "sharp";
  * frames into a short-lived temp directory which we delete on the way out.
  */
 
-const FFMPEG_PATH = ffmpegInstaller.path;
+// Resolved at runtime from the platform-specific binary shipped with @ffmpeg-installer/ffmpeg
+// (Linux on Vercel, Windows locally). Use require so Next/webpack externalizes this package.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const FFMPEG_PATH = require("@ffmpeg-installer/ffmpeg").path as string;
 
 const DEFAULT_TIMEOUT_MS = 60_000;
 const DEFAULT_FRAME_WIDTH = 720;

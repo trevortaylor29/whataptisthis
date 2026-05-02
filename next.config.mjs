@@ -12,6 +12,12 @@ const nextConfig = {
       "fluent-ffmpeg",
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals.push("@ffmpeg-installer/ffmpeg");
+    }
+    return config;
+  },
 };
 
 export default nextConfig;
