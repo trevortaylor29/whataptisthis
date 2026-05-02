@@ -271,8 +271,11 @@ export default function MatchCard({
                   onClick={() => setDetailsOpen((o) => !o)}
                   className="inline-flex min-h-[44px] cursor-pointer items-center gap-1 rounded-lg border border-ink-600 px-4 py-2.5 text-sm text-ink-200 transition-all duration-150 ease-out hover:border-ink-500 hover:bg-ink-700 md:min-h-0"
                   aria-expanded={detailsOpen}
+                  aria-label={
+                    detailsOpen ? "Hide evidence panel" : "View evidence panel"
+                  }
                 >
-                  See details
+                  View Evidence
                   <span
                     className={`transition-transform ${detailsOpen ? "rotate-180" : ""}`}
                   >

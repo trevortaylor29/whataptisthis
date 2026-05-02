@@ -9,7 +9,7 @@ export default function AboutContent() {
       <div className="mx-auto max-w-5xl px-4 py-16 md:px-8 md:py-24">
         <section className="mb-20 md:mb-28">
           <h2 className="font-display text-2xl font-semibold tracking-tight text-ink-100 md:text-[28px]">
-            How it works
+            Three simple steps
           </h2>
           <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
             <StepBlock

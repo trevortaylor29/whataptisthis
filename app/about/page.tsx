@@ -11,23 +11,26 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-page text-ink-100">
-      <div className="mx-auto max-w-2xl px-4 pt-12 md:px-6 md:pt-16">
-        <p className="text-sm text-ink-400">
+      <div className="mx-auto max-w-5xl px-4 md:px-8">
+        <header className="border-b border-[#1E1E2E] pb-10 pt-12 md:pb-12 md:pt-16">
           <Link
             href="/"
-            className="text-accent-muted transition-colors hover:text-ink-100"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-400 transition-colors hover:text-ink-100"
           >
-            ← Back
+            <span aria-hidden className="text-base leading-none">
+              ←
+            </span>
+            Back to home
           </Link>
-        </p>
-        <h1 className="mt-8 font-display text-3xl font-semibold text-ink-100">
-          How it Works
-        </h1>
-        <p className="mt-4 max-w-prose text-ink-400">
-          WhatAptIsThis matches TikTok and Instagram tour clips to real listing
-          signals — caption text for everyone, optional deeper scans for paid
-          credits.
-        </p>
+          <h1 className="mt-8 font-display text-3xl font-semibold tracking-tight text-ink-100 md:text-4xl">
+            How it Works
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-400 md:text-lg">
+            WhatAptIsThis matches TikTok and Instagram tour clips to real listing
+            signals — caption text for everyone, optional deeper scans for paid
+            credits.
+          </p>
+        </header>
       </div>
       <AboutContent />
     </div>

@@ -57,13 +57,44 @@ export default function ResultsView({
 
         {hasLiteBanner && (
           <aside
-            className="rounded-lg border border-white/[0.06] px-4 py-2 text-[13px] leading-snug text-ink-400"
+            className="rounded-xl border border-accent/30 bg-gradient-to-br from-accent/[0.07] to-transparent px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:px-5 md:py-5"
             role="note"
           >
-            <span className="font-medium text-ink-300">Free scan</span>
-            {" — "}
-            Basic analysis using up to 5 video frames. No visual verification or
-            landmark detection. Results may not be exact.
+            <p className="font-display text-sm font-semibold text-ink-100 md:text-base">
+              Free scan — preliminary match scores
+            </p>
+            <ul className="mt-3 list-none space-y-2 text-[13px] leading-snug text-ink-300 md:text-sm">
+              <li className="flex gap-2">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ink-500" />
+                <span>
+                  We use the caption plus a{" "}
+                  <strong className="font-medium text-ink-200">
+                    small sample of frames
+                  </strong>{" "}
+                  (up to 5) — enough for a direction, not a deep audit.
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ink-500" />
+                <span>
+                  No visual verification against listing photos, so the{" "}
+                  <strong className="font-medium text-ink-200">
+                    % scores below are often conservative or off
+                  </strong>
+                  .
+                </span>
+              </li>
+            </ul>
+            <p className="mt-4 border-t border-white/[0.08] pt-4 text-[13px] font-medium leading-snug text-accent-muted md:text-sm">
+              A{" "}
+              <strong className="font-semibold text-ink-100">full scan</strong>{" "}
+              analyzes far more frames, runs a heavier search, and
+              cross-checks your clip against building imagery —{" "}
+              <strong className="font-semibold text-ink-100">
+                confidence is usually much higher
+              </strong>
+              .
+            </p>
           </aside>
         )}
       </div>
