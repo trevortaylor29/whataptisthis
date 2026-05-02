@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import AboutContent from "@/components/AboutContent";
+
+export const metadata: Metadata = {
+  title: "How it Works",
+  description:
+    "WhatAptIsThis matches TikTok and Instagram tour clips to real listing signals — caption text for everyone, optional deeper scans for paid credits.",
+};
 
 export default function AboutPage() {
   return (
@@ -14,7 +21,7 @@ export default function AboutPage() {
           </Link>
         </p>
         <h1 className="mt-8 font-display text-3xl font-semibold text-ink-100">
-          About
+          How it Works
         </h1>
         <p className="mt-4 max-w-prose text-ink-400">
           WhatAptIsThis matches TikTok and Instagram tour clips to real listing

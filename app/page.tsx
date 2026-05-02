@@ -337,9 +337,16 @@ function HomePageInner() {
                 aria-hidden
               />
               <h1 className="mb-6 font-display text-[2.5rem] font-bold leading-[1.05] tracking-tight text-ink-100 md:text-[56px] lg:text-[64px]">
-                Find any apartment from a TikTok.
+                Find any apartment from a{" "}
+                <span className="text-accent">TikTok</span>.
               </h1>
               <SubheadlineTypewriter />
+              <Link
+                href="/about"
+                className="mb-8 inline-flex min-h-[44px] items-center justify-center rounded-xl border border-ink-600 bg-ink-900/30 px-5 py-2.5 text-sm font-medium text-ink-200 transition-colors hover:border-accent/50 hover:bg-ink-800 hover:text-ink-100"
+              >
+                Learn how it works
+              </Link>
 
               <div className="rounded-2xl border border-[rgba(124,58,237,0.2)] bg-surface p-8">
                 <InputForm
@@ -375,7 +382,7 @@ function HomePageInner() {
               href="/about"
               className="underline-offset-2 hover:text-ink-300 hover:underline"
             >
-              About
+              How it Works
             </Link>
             <span className="mx-3 text-ink-600">·</span>
             <Link

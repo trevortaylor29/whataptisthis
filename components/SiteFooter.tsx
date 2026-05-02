@@ -18,7 +18,7 @@ export default function SiteFooter() {
             href="/about"
             className="text-accent-muted transition-colors hover:text-ink-100"
           >
-            About
+            How it Works
           </Link>
           <Link
             href="/contact"
