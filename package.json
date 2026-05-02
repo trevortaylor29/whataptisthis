@@ -1,0 +1,39 @@
+{
+  "name": "apartment-decoder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Identify apartments from gatekept TikTok/Instagram videos",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:analyze": "tsx scripts/test-analyze.ts",
+    "test:frames": "tsx scripts/test-frame-subsample.ts"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffmpeg-installer/win32-x64": "^4.1.0",
+    "@fingerprintjs/fingerprintjs": "^5.2.0",
+    "@neondatabase/serverless": "^1.1.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "next": "14.2.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sharp": "^0.33.5",
+    "stripe": "^22.1.0"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.28",
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.19",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.15",
+    "postcss": "8.4.39",
+    "tailwindcss": "3.4.6",
+    "tsx": "4.16.2",
+    "typescript": "5.5.3"
+  }
+}

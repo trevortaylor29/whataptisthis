@@ -1,0 +1,24 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Secrets — never commit real keys (allow only *.example templates)
+.env
+.env.*
+!.env*.example
+
+*.log
+npm-debug.log*
+
+.DS_Store
+Thumbs.db
+
+.vercel
+.tsbuildinfo
+tsconfig.tsbuildinfo
+next-env.d.ts.bak
+
+data/usage.json
+data/visitor-store.json
